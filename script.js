@@ -1,7 +1,19 @@
-const browserSmall = window.matchMedia('(max-width: 720px)').matches;
+const tabMenu = document.querySelectorAll(".js-tabmenu li");
+const tabContent = document.querySelectorAll(".js-tabcontent section");
 
-if(browserSmall) {
-    const menu = document.querySelector('.menu');
-    console.log(menu)
-    menu.classList.add('menu-mobile')
+if (tabMenu.length && tabContent.length) {
+    tabContent[0].classList.add('ativo')
 }
+
+tabContent[0].classList.add("ativo");
+
+function activeTab(index) {
+  tabContent.forEach((section) => {
+    section.classList.remove("ativo");
+  });
+  tabContent[index].classList.add("ativo");
+}
+
+tabMenu.forEach((item, index) => {
+  item.addEventListener("click", () => activeTab(index));
+});
