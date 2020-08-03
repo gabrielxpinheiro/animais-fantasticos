@@ -233,7 +233,7 @@ body {
 
 .js-tabcontent section.ativo {
   display: block !important;
-  animation: show .5s forwards;
+  animation: show 0.5s forwards;
 }
 
 @keyframes show {
@@ -244,5 +244,44 @@ body {
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
+  }
+}
+
+.js-accordion dt {
+  cursor: pointer;
+}
+
+.js-accordion dt:hover {
+  opacity: 0.7;
+  color: black;
+}
+
+.js .js-accordion dd {
+  display: none;
+}
+
+.js-accordion dt::after {
+  content: "⬎";
+  margin-left: 10px;
+}
+
+.js-accordion dt.ativo::after {
+  content: "⬏";
+  margin-left: 10px;
+}
+
+.js-accordion dd.ativo {
+  display: block;
+  animation: slideDown 0.5s forwards;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    max-height: 0;
+  }
+  to {
+    max-height: 500px;
+    opacity: 1;
   }
 }
