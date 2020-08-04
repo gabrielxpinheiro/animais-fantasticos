@@ -90,3 +90,18 @@ function initAnimacaoScroll() {
 }
 
 initAnimacaoScroll()
+
+
+function Dom(elemento) {
+  this.elements = document.querySelectorAll(elemento)
+  this.addClass = (classe) => {
+    this.elements.forEach(elemento => {
+      elemento.classList.add(classe)
+    })
+  }
+  this.removeClass = (classe) => {
+    this.elements.forEach(elemento => {
+      elemento.classList.remove(classe)
+    })
+  }
+}
